@@ -14,15 +14,5 @@ export const SidebarData = [
     title: 'Generate Bill',
     path: '/billing',
     cName: 'nav-text'
-  },
-  {
-    title: 'Anouncement',
-    path: '/announcement',
-    cName: 'nav-text'
-  },
-  {
-    title: 'Complaints',
-    path: '/complaints',
-    cName: 'nav-text'
   }
 ];
