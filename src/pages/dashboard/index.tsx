@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { LoginContext } from "../../context/loginContext";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 const Dashboard = () => {
@@ -8,7 +9,11 @@ const Dashboard = () => {
 
   const { userDetails } = useContext(LoginContext);
 
-  return <div>hello dashboard</div>;
+  return (
+    <>
+    <Navbar/>
+    </>
+  );
 };
 
 export default Dashboard;
