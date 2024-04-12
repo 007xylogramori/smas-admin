@@ -3,6 +3,7 @@ import LoginPage from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import { AppProvider } from "./context/loginContext";
 import UsersPage from "./pages/users/index";
+import SingleUsersPage from "./pages/singleuser/index";
 
 const App = () => {
   
@@ -14,6 +15,7 @@ const App = () => {
           <Route element={<Dashboard />} path="/" />
           <Route element={<LoginPage />} path="/login" />
           <Route element={<UsersPage/>} path="/users" />
+          <Route element={<SingleUsersPage/>} path="/users/:id" />
         </Routes>
       </AppProvider>
     </div>
