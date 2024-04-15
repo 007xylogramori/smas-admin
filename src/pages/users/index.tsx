@@ -64,7 +64,7 @@ const UsersPage = () => {
               ADD NEW USER
             </button>
           ) : (
-            <AddUser />
+            <AddUser getUsers={getUsers} />
           )}
         </div>
 
@@ -111,7 +111,7 @@ const UsersPage = () => {
                     </td>
                     <td className="px-6 flex gap-1 py-4">
                       <button className="bg-green-500 py-1 px-2 rounded-md text-white">
-                        <Link to={`/users/${user.roll_no}`}>VIEW</Link>
+                        <Link to={`/users/${user.email}`}>VIEW</Link>
                       </button>
                       <button className="bg-red-500 py-1 px-2 rounded-md text-white">
                         Delete

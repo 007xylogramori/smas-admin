@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import Loader from "../loader/Loader";
-const AddUser = () => {
+const AddUser = ({getUsers}) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
@@ -31,6 +31,7 @@ const AddUser = () => {
       setEmail("");
       setName("");
       setPassword("");
+      getUsers();
     }
   };
 
