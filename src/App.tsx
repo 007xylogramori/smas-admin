@@ -4,6 +4,7 @@ import Dashboard from "./pages/dashboard";
 import { AppProvider } from "./context/loginContext";
 import UsersPage from "./pages/users/index";
 import SingleUsersPage from "./pages/singleuser/index";
+import GenerateBillPage from "./pages/GenerateBill/index";
 
 const App = () => {
   
@@ -16,6 +17,7 @@ const App = () => {
           <Route element={<LoginPage />} path="/login" />
           <Route element={<UsersPage/>} path="/users" />
           <Route element={<SingleUsersPage/>} path="/users/:email" />
+          <Route element={<GenerateBillPage/>} path="/billing" />
         </Routes>
       </AppProvider>
     </div>

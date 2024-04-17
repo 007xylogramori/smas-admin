@@ -36,8 +36,7 @@ const LoginForm = () => {
     }  
     else{
       setUserDetails(data.user);
-      // console.log(data," login page");
-      navigate("/");
+      navigate("/users");
     }
     
 
