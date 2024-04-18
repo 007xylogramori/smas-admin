@@ -1,9 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import AddUser from "../../components/addUser/AddUser";
 
+
+
 const UsersPage = () => {
-    const [openAdd , setOpenAdd]=useState(false);
+  const [openAdd, setOpenAdd] = useState(false);
+  const [users, setUsers] = useState([]);
+  const getAllUsers = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_API_URL + "/user/add/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    }
+    )
+    const data = await res.json();
+    setUsers(data);
+    console.log(data)
+  }
+  useEffect(() => {
+    getAllUsers();
+  }, [])
   return (
     <>
       <Navbar />
@@ -11,7 +31,7 @@ const UsersPage = () => {
         <div className="col-span-2">
           <div className="my-4 max-w-md mx-auto">
             <div className="">
-              
+
               <input
                 type="search"
                 id="default-search"
@@ -21,11 +41,11 @@ const UsersPage = () => {
               />
             </div>
           </div>
-         {!openAdd?
-        <button className="w-[100%] bg-blue-500 text-white py-1 rounded-md" onClick={()=>{setOpenAdd(!openAdd)}}>ADD NEW USER</button> :<AddUser/> 
-        }
-                 
-          
+          {!openAdd ?
+            <button className="w-[100%] bg-blue-500 text-white py-1 rounded-md" onClick={() => { setOpenAdd(!openAdd) }}>ADD NEW USER</button> : <AddUser />
+          }
+
+
         </div>
 
         <div className=" col-span-5 m-4 rounded-md overflow-x-auto shadow-md sm:rounded-lg">
@@ -50,14 +70,21 @@ const UsersPage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white  odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  User Name-1
-                </th>
-                <td className="px-6 py-4">21bec000</td>
+             
+                {
+                  users?.map((user) => (
+                    <div>
+                      <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        {user.name}
+                      </th>
+                      <td className="px-6 py-4">{user.roll_no}</td>
+                      <td className="px-6 py-4">{user.email}</td>
+                    </div>
+                  ))
+                }
                 <td className="px-6 py-4">ECE</td>
                 <td className="px-6 py-4">22-1-2024</td>
                 <td className="px-6 flex gap-1 py-4">
@@ -71,6 +98,9 @@ const UsersPage = () => {
                     Delete
                   </button>
                 </td>
+              </tr>
+              <tr>
+
               </tr>
               <tr className="odd:bg-white  odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <th
