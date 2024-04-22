@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SidebarData } from "./SideBarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
@@ -6,7 +6,6 @@ import { useState } from "react";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-  const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
   const handleLogout = () => {
     localStorage.clear();

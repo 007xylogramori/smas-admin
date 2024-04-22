@@ -111,7 +111,7 @@ const SingleUsersPage = () => {
                       mealsData.map((data)=>{
                         console.log(data)
                         return (
-                          <tr
+                          <tr key={data.month}
                       
                       className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                     >
